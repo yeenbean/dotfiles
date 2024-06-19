@@ -13,11 +13,12 @@
       lib = nixpkgs.lib;
     in {
     nixosConfigurations = {
-      teeth = lib.nixosSystem {
+      yeenimal-g3 = lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
-        ]
+          ./systems/yeenimal-g3/configuration.nix
+          ./systems/yeenimal-g3/hardware-configuration.nix
+        ];
       };
     };
   };
