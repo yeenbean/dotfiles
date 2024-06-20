@@ -6,9 +6,18 @@
 
 {
   # imports =
-  #   [ # Include the results of the hardware scan.
-  #     ./hardware-configuration.nix
-  #   ];
+  [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.home-manager
+  ];
+
+  # Home Manager stuff
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      zima = import ../../configs/zima.nix;
+    };
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
