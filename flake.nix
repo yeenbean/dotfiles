@@ -15,11 +15,16 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      lib = nixpkgs.lib;
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config = {
+          allowUnfree = true;
+        };
+      };
     in {
     nixosConfigurations = {
-      yeenimal-g3 = lib.nixosSystem {
-        system = "x86_64-linux";
+      yeenimal-g3 = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs system; };
         modules = [
           ./systems/yeenimal-g3/configuration.nix
