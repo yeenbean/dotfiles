@@ -19,8 +19,8 @@
     in {
     nixosConfigurations = {
       yeenimal-g3 = lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
         system = "x86_64-linux";
+        specialArgs = { inherit inputs system; };
         modules = [
           ./systems/yeenimal-g3/configuration.nix
         ];
