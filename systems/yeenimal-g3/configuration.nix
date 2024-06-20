@@ -120,6 +120,7 @@
     podman-tui
     vscode-fhs
     gitkraken
+    spotify
   ];
 
   fonts.packages = with pkgs; [
