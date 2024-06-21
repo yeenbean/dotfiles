@@ -15,7 +15,7 @@
   };
 
   home.sessionVariables = {
-    # EDITOR = "nano";
+    EDITOR = "nano";
   };
 
   programs.home-manager.enable = true;
