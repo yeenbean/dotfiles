@@ -14,7 +14,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      zima = import ../../configs/zima.nix;
+      zima = import ../../home-manager/zima.nix;
     };
   };
 
