@@ -121,6 +121,7 @@
     vscode-fhs
     gitkraken
     spotify
+    flameshot
   ];
 
   fonts.packages = with pkgs; [
