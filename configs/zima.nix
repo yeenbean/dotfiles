@@ -7,7 +7,7 @@
   home.stateVersion = "22.11";
 
   home.packages = [
-    pkgs.hello
+    #pkgs.hello
   ];
 
   home.file = {
