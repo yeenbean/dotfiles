@@ -1,0 +1,73 @@
+# source secrets
+if [ -f ~/.secrets ]; then
+    source ~/.secrets
+fi
+
+# Added by cua-driver-rs installer — see https://github.com/trycua/cua
+export PATH="/home/zima/.local/bin:$PATH"
+
+# add homebrew to path
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+
+# set up editor
+export EDITOR="zed --wait"
+alias edit="$EDITOR"
+
+# other aliases
+alias ls="ls -Al"
+alias la="ls -al"
+alias chedit="chezmoi edit --apply"
+
+# greeting
+
+fgreeting=(
+    "Home at last, Zima. We feared the road would keep you longer."
+    "Welcome home, Lord Zima. The castle is itself again now that you're here."
+    "So you've returned to us at last, my lord. It does this old heart good."
+    "Ah, Zima. Welcome back. Everything is as you left it. More or less."
+    "Welcome back, my lord."
+    "Late again, my lord. The road must love you dearly..."
+    "What kept you? And spare us the bit about the horse."
+    "You took your time, Zima. The stew has been reheated twice..."
+    "Zima, you vanish like smoke. Where have you been keeping yourself?"
+    "The whole castle has been asking after you, my lord. So... Where were you?"
+    "So, the prodigal lord returns. Where have you been hiding, Zima?"
+)
+
+greeting=(
+    "When did you last hear from your husband, my lord? Silence grows long on the road."
+    "How fares your husband? Write him tonight, Zima. The heart keeps no schedule."
+    "Has your husband written? You go quiet when the messenger comes up empty."
+    "You might send word to your husband, my lord. Even lords must court."
+    "Have you written to your boys? They've been sulking through the halls all week."
+    "When did you last see your boys, my lord? They do get restless without you."
+    "Your boys have been asking after you. One might almost be jealous of the road."
+    "Tend to your boys, my lord. A lord who neglects his favorites answers to us all."
+    "Go on, admit it. You've missed the boys as much as they've missed you."
+    "You mustn't forget to eat, my lord..."
+    "Come, food and drink first. Business after. That is the law of this hall."
+    "You look parched, my lord... Ale, wine, or water?"
+    "Here. Drink. You can refuse me after you've finished."
+    "You look tired, my lord. The realm will survive an hour without you. Well, except for that chair. It will miss you dearly."
+    "Rest, Zima. Even the sun sets."
+    "You've the look of a man who's ridden since dawn. Sit down before you fall down."
+    "Take a break, my lord. The ledgers will still be here tomorrow, tired as ever."
+    "Go on, rest a while. We'll mind the door. We always do."
+    "You look worn through, my lord. Let someone else carry it for an hour."
+)
+
+if [ $(cat /proc/uptime | awk '{print $1}' | cut -d. -f1) -lt 300 ]; then
+    echo
+    if command -v fastfetch &> /dev/null; then
+        fastfetch
+    fi
+    echo
+    echo " ${fgreeting[$((RANDOM % ${#fgreeting[@]}))]}"
+    echo
+    echo
+else
+    echo
+    echo " ${greeting[$((RANDOM % ${#greeting[@]}))]}"
+    echo
+    echo
+fi

@@ -1,0 +1,70 @@
+config_version = 14
+
+[audio]
+enable_sounds = true
+
+[bar.default]
+background_opacity = 0.67
+center = []
+concave_edge_corners = false
+end = [ "tray", "widget", "privacy", "battery", "control-center", "date", "clock" ]
+margin_edge = 16
+margin_ends = 32
+padding = 16
+radius = 9
+start = [ "workspaces", "cat" ]
+thickness = 32
+widget_spacing = 12
+
+[calendar]
+enabled = true
+
+[dock]
+background_opacity = 0.9
+magnification = false
+radius = 9
+
+[location]
+address = "Phoenix, Arizona"
+
+[notification]
+background_opacity = 0.9
+
+[osd]
+background_opacity = 0.9
+
+[shell]
+button_borders = false
+polkit_agent = true
+screen_time_enabled = true
+settings_window_translucent = true
+
+    [shell.greeter_sync]
+    auto_sync = true
+
+    [shell.panel]
+    control_center_placement = "floating"
+    open_near_click_control_center = true
+    transparency_mode = "glass"
+
+    [shell.screen_corners]
+    enabled = true
+    size = 18
+
+    [shell.screenshot]
+    annotate = true
+    save_to_file = false
+
+    [shell.shadow]
+    direction = "center"
+
+[theme]
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "kitty", "qt", "umbriel" ]
+
+[widget.control-center]
+glyph = "adjustments"
