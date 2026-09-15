@@ -107,6 +107,10 @@ honor_restored_maximize = false                 # Honor restored maximized state
 # [output.DP-1.layout.scrolling]
 # default_width_fraction = 0.4
 
+# Dell XPS Built-in Display
+[output."AU Optronics 0x282B Unknown"]
+scale = 2
+
 # ────────────────────────────── Workspaces ──────────────────────────────────
 # Choose global workspace behavior. Each output uses dynamic workspaces unless
 # its output section defines a static count or list of names.
@@ -142,9 +146,9 @@ empty_above = false                             # Keep one empty workspace above
 # name = "CHAT"
 # layout.mode = "master"
 
-[[workspace]]
-index = 1
-layout.mode = "dwindle"
+# [[workspace]]
+# index = 1
+# layout.mode = "dwindle"
 
 # ─────────────────────────────── Colors ─────────────────────────────────────
 # Configure every color Umbriel paints. Values stay commented so an included
@@ -165,8 +169,8 @@ layout.mode = "dwindle"
 # shadow = "#0000007F"                          # Window shadow
 
 [colors.border]
-focused = "#3F3F3F7F"                         # Focused window border
-unfocused = "#3F3F3F7F"                       # Unfocused window border
+# focused = "#3F3F3F7F"                         # Focused window border
+# unfocused = "#3F3F3F7F"                       # Unfocused window border
 # scratchpad_focused = "#E5C07BFF"              # Focused scratchpad border
 # scratchpad_unfocused = "#5C4A2AFF"            # Unfocused scratchpad border
 # outer = "#FFFFFF3F"                           # Outer border ring
@@ -184,9 +188,9 @@ unfocused = "#3F3F3F7F"                       # Unfocused window border
 
 [appearance]
 prefer_no_csd = true                            # Prefer Umbriel's border-only decoration
-border_width = 1                                # Inner border width, 0-100 logical pixels
+border_width = 2                                # Inner border width, 0-100 logical pixels
 outer_border_width = 0                          # Optional outer ring, 0-100 logical pixels
-corner_radius = 9                              # Radius of the final decorated edge, 0-100
+corner_radius = 10                              # Radius of the final decorated edge, 0-100
 drag_opacity = 0.75                             # Window opacity during a tiled or floating drag
 
 [appearance.blur]
@@ -195,7 +199,7 @@ drag_opacity = 0.75                             # Window opacity during a tiled 
 enabled = true                                  # Disable blur and release per-output effect buffers
 optimized = true                                # Reuse one cached background blur per output
 passes = 3                                      # Blur passes, 0-8
-radius = 3                                      # Blur radius, 0-100
+radius = 32                                      # Blur radius, 0-100
 noise = 0.02                                    # Noise overlay, 0.0-1.0
 brightness = 0.9                                # 0.0-2.0
 contrast = 0.9                                  # 0.0-2.0
@@ -205,9 +209,9 @@ saturation = 1.1                                # 0.0-2.0
 # Custom window shaders automatically shape the shadow from their output alpha.
 # Shadows stay beneath windows and follow closing snapshots as well.
 enabled = true                                  # Draw shadows behind non-fullscreen windows
-softness = 32                                   # Gaussian softness, 0-200; 0 is a hard edge
+softness = 16                                   # Gaussian softness, 0-200; 0 is a hard edge
 offset_x = 0                                    # Horizontal offset, -200 to 200
-offset_y = 0                                    # Vertical offset, -200 to 200
+offset_y = 4                                    # Vertical offset, -200 to 200
 
 # ──────────────────────────────── Input ─────────────────────────────────────
 # Configure keyboards, pointers, tablets, cursor behavior, and focus policy.
@@ -328,6 +332,7 @@ follows_mouse = false                           # Focus on pointer motion and Dw
 # Applications and session
 "Mod+Return" = "spawn:kitty"
 "Mod+Space" = "spawn:noctalia msg panel-toggle launcher"
+"Alt+Space" = "spawn:noctalia msg panel-toggle launcher"    # Feels closer to macOS, needed for muscle memory
 "Mod+Q" = "window-close"
 
 # Focus navigation. In overview, Mod+Up/Down retain normal layout focus, so they
@@ -358,8 +363,8 @@ follows_mouse = false                           # Focus on pointer motion and Dw
 "Mod+Shift+Down" = "window-move-down"
 "Mod+Shift+Up" = "window-move-up"
 "Mod+Shift+Right" = "column-move-right"
-"Mod+F" = "window-toggle-fullscreen"             # Exit restores the previous layout size immediately
-"Mod+Ctrl+F" = "window-toggle-maximize"
+"Mod+Ctrl+F" = "window-toggle-fullscreen"             # Exit restores the previous layout size immediately
+"Mod+F" = "window-toggle-maximize"
 "Mod+R" = "window-cycle-width"
 "Mod+Shift+R" = "window-cycle-width-back"
 "Mod+Comma" = "window-consume-left"
@@ -492,9 +497,9 @@ bottom = 0
 
 [layout.scrolling]
 # The strip axis is perpendicular to the output's workspace_axis.
-default_width_fraction = 0.5                    # Initial width for new columns, 0.1-1.0
+default_width_fraction = 0.667                    # Initial width for new columns, 0.1-1.0
 center_underfull_strip = true                   # Center a strip narrower than the viewport
-center_focused = "never"                        # never, always, or on_overflow
+center_focused = "on_overflow"                        # never, always, or on_overflow
 
 [layout.dwindle]
 # preserve_split = false                        # Keep every split direction fixed after creation
@@ -740,27 +745,27 @@ workspace_curve = "spring:1,1000"
 
 # Scratchpad show, hide, and backdrop
 [animation.scratchpad]
-enabled = false
-duration_ms = 250
+enabled = true
+duration_ms = 150
 curve = "easeout"
 dim = 0.5                                       # Backdrop dim amount, 0.0-1.0
-blur = false                                    # Requires appearance.blur.enabled
+blur = true                                    # Requires appearance.blur.enabled
 scale = 0.0                                     # 0 keeps geometry; 0.1-1.0 centers and scales
 maximize = false                                # Maximize to usable-area edges while shown
 fullscreen = false                              # Make the scratchpad window fullscreen while shown
 
 # Focus border color
 [animation.border]
-enabled = false
-duration_ms = 250
+enabled = true
+duration_ms = 150
 curve = "easeout"
 
 # Unfocused window opacity
 [animation.dim_unfocused]
-enabled = false
-duration_ms = 250
+enabled = true
+duration_ms = 150
 curve = "easeout"
-dim = 0.0                                       # 0 disables dimming; maximum is 1.0
+dim = 0.1                                       # 0 disables dimming; maximum is 1.0
 
 # Layer-shell surface mapping and unmapping
 [animation.layers]
