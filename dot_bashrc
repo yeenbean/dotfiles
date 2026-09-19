@@ -18,7 +18,7 @@ alias ls="ls -Al"
 alias la="ls -al"
 alias chedit="chezmoi edit --apply"
 
-# greeting
+# greetings
 
 fgreeting=(
     "Ah, Zima. Welcome back. Everything is as you left it. More or less."
@@ -48,11 +48,13 @@ greeting=(
     "Take a break, my lord. The ledgers will still be here tomorrow, tired as ever."
 )
 
+# render greeting
+if command -v fastfetch &> /dev/null; then
+    clear       # subjectively clear only if fastfetch is available
+    fastfetch
+fi
+
 if [ $(cat /proc/uptime | awk '{print $1}' | cut -d. -f1) -lt 300 ]; then
-    echo
-    if command -v fastfetch &> /dev/null; then
-        fastfetch
-    fi
     echo
     echo "${fgreeting[$((RANDOM % ${#fgreeting[@]}))]}"
     echo
