@@ -12,7 +12,7 @@ margin_edge = 16
 margin_ends = 32
 padding = 16
 radius = 9
-start = [ "workspaces", "cat" ]
+start = [ "workspaces" ]
 thickness = 32
 widget_spacing = 12
 
