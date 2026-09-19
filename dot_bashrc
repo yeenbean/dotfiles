@@ -7,7 +7,11 @@ fi
 export PATH="/home/zima/.local/bin:$PATH"
 
 # add homebrew to path
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+elif [ -f "/opt/homebrew/bin/brew" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv bash)"
+fi
 
 # set up editor
 export EDITOR="zed --wait"
