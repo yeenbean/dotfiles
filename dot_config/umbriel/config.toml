@@ -489,7 +489,7 @@ follows_mouse = false                           # Focus on pointer motion and Dw
 [layout]
 mode = "scrolling"                              # scrolling, dwindle, or master
 gap = 32                                         # Logical pixels between tiles, 0-500
-extent_presets = [0.333, 0.5, 0.667]             # Width and height cycling fractions
+extent_presets = [0.25, 0.333, 0.5, 0.667]             # Width and height cycling fractions
 
 [layout.struts]
 # Signed logical pixels reserved after panel exclusive zones. Negative values
@@ -501,7 +501,7 @@ bottom = 0
 
 [layout.scrolling]
 # The strip axis is perpendicular to the output's workspace_axis.
-default_extent_fraction = 0.667                    # Initial width for new columns, 0.1-1.0
+default_extent_fraction = 0.5                    # Initial width for new columns, 0.1-1.0
 center_underfull_strip = true                   # Center a strip narrower than the viewport
 center_focused = "on_overflow"                        # never, always, or on_overflow
 
