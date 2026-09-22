@@ -111,9 +111,11 @@ honor_restored_maximize = false                 # Honor restored maximized state
 [output."AU Optronics 0x282B Unknown"]
 scale = 2
 
+# 32:9 Samsung Odyssey
 [output."Samsung Electric Company Odyssey G95SC H1AK500000"]
 vrr = "always"
 hdr = "off"
+layout.scrolling.default_extent_fraction = 0.5
 
 # ────────────────────────────── Workspaces ──────────────────────────────────
 # Choose global workspace behavior. Each output uses dynamic workspaces unless
@@ -501,7 +503,7 @@ bottom = 0
 
 [layout.scrolling]
 # The strip axis is perpendicular to the output's workspace_axis.
-default_extent_fraction = 0.5                    # Initial width for new columns, 0.1-1.0
+default_extent_fraction = 0.667                    # Initial width for new columns, 0.1-1.0
 center_underfull_strip = true                   # Center a strip narrower than the viewport
 center_focused = "on_overflow"                        # never, always, or on_overflow
 
