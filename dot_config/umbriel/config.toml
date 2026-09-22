@@ -115,7 +115,7 @@ scale = 2
 [output."Samsung Electric Company Odyssey G95SC H1AK500000"]
 vrr = "always"
 hdr = "off"
-layout.scrolling.default_extent_fraction = 0.5
+layout.scrolling.default_extent_fraction = 0.333
 
 # ────────────────────────────── Workspaces ──────────────────────────────────
 # Choose global workspace behavior. Each output uses dynamic workspaces unless
