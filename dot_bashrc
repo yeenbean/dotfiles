@@ -5,12 +5,12 @@ fi
 
 # add local bin to path
 if [ -f "~/.local/bin" ]; then
-    export PATH="~/.local/bin"
+    export PATH="~/.local/bin:$PATH"
 fi
 
 # add go bin to path
 if [ -f "~/go/bin" ]; then
-    export PATH="~/go/bin"
+    export PATH="~/go/bin:$PATH"
 fi
 
 # add homebrew to path
