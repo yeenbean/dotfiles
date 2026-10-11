@@ -3,8 +3,15 @@ if [ -f ~/.secrets ]; then
     source ~/.secrets
 fi
 
-# Added by cua-driver-rs installer — see https://github.com/trycua/cua
-export PATH="/home/zima/.local/bin:$PATH"
+# add local bin to path
+if [ -f "~/.local/bin" ]; then
+    export PATH="~/.local/bin"
+fi
+
+# add go bin to path
+if [ -f "~/go/bin" ]; then
+    export PATH="~/go/bin"
+fi
 
 # add homebrew to path
 if [ -f "/home/linuxbrew/.linuxbrew/bin/brew" ]; then
